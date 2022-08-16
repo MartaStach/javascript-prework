@@ -29,12 +29,15 @@ function putX (exlocation){
 	document.getElementById(bomblocation).innerHTML = '';
   }
 
-  function putBomb (exlocation){
-	var th = document.createElement('div');
-	th.innerHTML = '<i class="fa-solid fa-bomb"></i>';
-	document.getElementById(exlocation)(th);
+  function putBomb (bomblocation){
+	var div = document.createElement('div');
+	div.innerHTML = '<i class="fa-solid fa-bomb"></i>';
+	document.getElementById(bomblocation).appendChild(div);
   }
-
+  
+  function clearX (exlocation){
+	document.getElementById(exlocation).innerHTML = '';
+  }
 
   function printSaperResults(results){
 	var div = document.createElement('div');
