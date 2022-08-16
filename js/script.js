@@ -97,18 +97,10 @@ function buttonSaperClicked () {
   secondBombNumber = 0;
   thirdBombNumber = 0;
   clearMessages();
-  mixBombNumbers();
-  GuessBomb();
+  var {computerFirstBombSaper, computerSecondBombSaper, computerThridBombSaper} = mixBombNumbers();
+  GuessBomb(computerFirstBombSaper, computerSecondBombSaper, computerThridBombSaper);
  
   } 
-  
-
-
-function nextGuesses () {
-  clearMessages ();
-  GuessBomb () = playerMoveSaper
-  playersChoiceChecking (playerMoveSaper);
-  }
 
 function mixBombNumbers() {
   console.log('1');
@@ -126,11 +118,11 @@ function mixBombNumbers() {
     console.log('Ponowne losowanie trzeciej liczby');
   }
   console.log('Numer trzeciej bomby to ' + thirdBombNumber);
-  //putBombs (getIdName(firstBombNumber));
-  //putBombs (getIdName(secondBombNumber));
-  //putBombs (getIdName(thirdBombNumber));
-  console.log('Położenie bomb to: ' + getIdName(firstBombNumber) +', ' + getIdName(secondBombNumber) + ', ' +  getIdName(thirdBombNumber));
-  //console.log(putBombs (getIdName(firstBombNumber, secondBombNumber, thirdBombNumber)));
+  computerFirstBombSaper = getIdName(firstBombNumber);
+  computerSecondBombSaper = getIdName(secondBombNumber);
+  computerThridBombSaper = getIdName(thirdBombNumber)
+  console.log('Położenie bomb to: ' + computerFirstBombSaper +', ' + computerSecondBombSaper + ', ' +  computerThridBombSaper);
+  return {computerFirstBombSaper, computerSecondBombSaper, computerThridBombSaper};
 }
 
 function getIdName(bombnumber) {
@@ -154,49 +146,36 @@ function getIdName(bombnumber) {
     return 'c3';
   }
 }
-function GuessBomb () {
-  playerMoveSaper = prompt('Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3. Wpisz numer pola:');
-  getIdName(playerMoveSaper);
-  console.log('Gracz wybrał pole ' + playerMoveSaper + 'czyli' + getIdName(playerMoveSaper));
-  playersChoiceChecking (playerMoveSaper);
-  choice = playersChoiceChecking
+function GuessBomb (firstBombNumber, secondBombNumber, thirdBombNumber) {
+  playerMoveSaper = prompt ();
+  console.log('Gracz wybrał pole ' + playerMoveSaper);
+  playersChoiceChecking (playerMoveSaper, firstBombNumber, secondBombNumber, thirdBombNumber);
 }
 
 
-function playersChoiceChecking (playerMoveSaper) {
-  if (playerMoveSaper == firstBombNumber || playerMoveSaper == secondBombNumber || playerMoveSaper == thirdBombNumber) {
-    printMessage('Przegrałeś, naciśnij bombę i zagraj jeszcze raz');
-    firstBombNumber = 0;
-    secondBombNumber = 0;
-    thirdBombNumber = 0;
+//uproszczenie
+function playersChoiceChecking (playersChoice, firstBombNumber, secondBombNumber, thirdBombNumber) {
+  if (playersChoice == firstBombNumber || playersChoice == secondBombNumber || playersChoice == thirdBombNumber) {
+    BadChoiceSaper (playersChoice);
   } else {
-    NextMove = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3. Wpisz numer pola:');
-    getIdName(NextMove);
-      if (NextMove == firstBombNumber || NextMove == secondBombNumber || NextMove == thirdBombNumber) {
-        BadChoice ();
+    GoodSaperChoice (playersChoice);
+      if (playersChoice == firstBombNumber || playersChoice == secondBombNumber || playersChoice == thirdBombNumber) {
+        BadChoiceSaper (playersChoice);
       } else {
-        NextMove = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3. Wpisz numer pola:');
-        getIdName(NextMove);
-        if (NextMove == firstBombNumber || NextMove == secondBombNumber || NextMove == thirdBombNumber) {
-          BadChoice ();
+        GoodSaperChoice (playersChoice);
+        if (playersChoice == firstBombNumber || playersChoice == secondBombNumber || playersChoice == thirdBombNumber) {
+          BadChoiceSaper (playersChoice);
         } else {
-          NextMove = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3.Wpisz numer pola:');
-          getIdName(NextMove);
-          if (NextMove == firstBombNumber || NextMove == secondBombNumber || NextMove == thirdBombNumber) {
-            BadChoice ();
+          GoodSaperChoice (playersChoice);
+          if (playersChoice == firstBombNumber || playersChoice == secondBombNumber || playersChoice == thirdBombNumber) {
+            BadChoiceSaper (playersChoice);
           } else {
-            NextMove = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3. Wpisz numer pola:');
-            getIdName(NextMove);
-            if (NextMove == firstBombNumber || NextMove == secondBombNumber || NextMove == thirdBombNumber) {
-              BadChoice ();
+            GoodSaperChoice (playersChoice);
+            if (playersChoice == firstBombNumber || playersChoice == secondBombNumber || playersChoice == thirdBombNumber) {
+              BadChoiceSaper (playersChoice);
             } else {
-              NextMove = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: 1-a1, 2-a2, 3-a3, 4-b1, 5-b2, 6-b3, 7-c1, 8-c2, 9-c3. Wpisz numer pola:');
-              getIdName(NextMove);
-              if (NextMove == firstBombNumber || NextMove == secondBombNumber || NextMove == thirdBombNumber) {
-                BadChoice ();
-              } else {
-                printMessage('Wygrałeś!');
-              }
+              putX (playersChoice);
+              printSaperResults('Wygrałeś!');
             }
           }
         }
@@ -204,9 +183,22 @@ function playersChoiceChecking (playerMoveSaper) {
     }
   }
 
+//uproszczenie
+function BadChoiceSaper (playersBadChoice){
+  putBomb (playersBadChoice);
+  printSaperResults('Przegrałeś, naciśnij bombę i zagraj jeszcze raz');
+}
+
+function GoodSaperChoice (playersGoodChoice) {
+  putX (playersGoodChoice);
+  playersChoice = prompt('Dobrze, graj dalej! Wybierz pole, na którym nie spodziewasz się bomby: a1, a2, a3, b1, b2, b3, c1, c2, c3. Wpisz numer pola:');
+}
 
 
-function BadChoice () {
+
+
+function BadChoice (NextMove) {
+  putBomb (NextMove);
   printMessage('Przegrałeś, naciśnij bombę i zagraj jeszcze raz');
   firstBombNumber = 0;
   secondBombNumber = 0;
