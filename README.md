@@ -1,0 +1,1 @@
+Small website project to play rock, paper, scissors; using html, JS and css.
