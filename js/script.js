@@ -8,11 +8,10 @@ buttonReset = document.getElementById('button-reset');
 /**
  * Describe this function...
  */
- let argButtonName;
-function buttonClicked(argButtonName) {
+
+function buttonClicked(playerMove) {
   clearMessages();
-  console.log(argButtonName + ' został kliknięty');
-  const playerMove = argButtonName;
+  console.log(playerMove + ' został kliknięty');
     console.log('ruch gracza to: ' + playerMove);
     let randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log('wylosowana liczba to: ' + randomNumber);
@@ -27,7 +26,7 @@ function buttonClicked(argButtonName) {
  * Describe this function...
  */
   function buttonResetClicked(buttonReset) {
-    console.log(argButtonName + 'został kliknięty')
+    console.log(buttonReset + 'został kliknięty')
     console.log( 'wyniki zostały zresetowane');
     clearMessages();
     clearResults();
@@ -38,7 +37,6 @@ function buttonClicked(argButtonName) {
 /**
  * Describe this function...
  */
- let argMoveId;
 
 function getMoveName(argMoveId) {
   console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
@@ -57,7 +55,6 @@ function getMoveName(argMoveId) {
 /**
  * Describe this function...
  */
-  let argPlayerMove, argComputerMove;
   playerResult=0;
   computerResult=0;
 
